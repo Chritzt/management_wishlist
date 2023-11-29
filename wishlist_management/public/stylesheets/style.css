@@ -24,3 +24,25 @@ a {
 .table-row{
 
 }
+
+input{
+  width : 50%;
+  height : 40px;
+  margin : 10px;
+}
+
+label{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.management-button{
+  background-color: green;
+  padding: 10px;
+  border-radius: 20px;
+  width : 30%;
+  height : 40px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid transparent;
+}
