@@ -24,7 +24,7 @@ app.get('/children/:id/wishes', (req:Request, res:Response) =>{
 
 app.post('/children', (req : Request, res: Response) =>{
 
-    if(req.body.id && req.body.name && req.body.age && req.body.wishes){
+    if( req.body.name && req.body.age){
         let maxID = childrenArr[0].id;
 
         for (let i = 1; i < childrenArr.length; i++) {
@@ -36,7 +36,7 @@ app.post('/children', (req : Request, res: Response) =>{
         const child : IChild = {"id" : maxID + 1,
             "name" : req.body.name,
             "age" : req.body.age,
-            "wishes" : req.body.wishes};
+            "wishes" : []};
 
         childrenArr.push(child);
 
@@ -51,7 +51,7 @@ app.post('/children', (req : Request, res: Response) =>{
 app.post('/children/:id/wishes', (req : Request, res : Response) =>{
     const id = parseInt(req.params.id);
 
-    if(req.body.id && req.body.name && req.body.url && req.body.img_url){
+    if(req.body.name && req.body.url && req.body.img_url){
 
         const indexOfChild : number = childrenArr.findIndex(e => e.id === id);
 

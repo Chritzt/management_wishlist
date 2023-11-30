@@ -19,7 +19,7 @@ app.get('/children/:id/wishes', (req, res) => {
     res.status(404).send("child not found");
 });
 app.post('/children', (req, res) => {
-    if (req.body.id && req.body.name && req.body.age && req.body.wishes) {
+    if (req.body.name && req.body.age) {
         let maxID = childrenArr[0].id;
         for (let i = 1; i < childrenArr.length; i++) {
             if (childrenArr[i].id > maxID) {
@@ -29,7 +29,7 @@ app.post('/children', (req, res) => {
         const child = { "id": maxID + 1,
             "name": req.body.name,
             "age": req.body.age,
-            "wishes": req.body.wishes };
+            "wishes": [] };
         childrenArr.push(child);
         res.status(201).send("created");
         return;
@@ -38,7 +38,7 @@ app.post('/children', (req, res) => {
 });
 app.post('/children/:id/wishes', (req, res) => {
     const id = parseInt(req.params.id);
-    if (req.body.id && req.body.name && req.body.url && req.body.img_url) {
+    if (req.body.name && req.body.url && req.body.img_url) {
         const indexOfChild = childrenArr.findIndex(e => e.id === id);
         if (indexOfChild < 0) {
             res.status(404).send("child not found");
