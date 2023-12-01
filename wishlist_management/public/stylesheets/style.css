@@ -3,6 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/* styling index.html*/
 a {
   color: #00B7FF;
 }
@@ -17,13 +18,33 @@ a {
 }
 
 .table-elements{
-  border : 1px solid green;
+  border : 3px solid black;
   width : 50%;
 }
 
-.table-row{
-
+.table-row:nth-child(2){
+  background-color: lightgreen;
 }
+
+.table-headline{
+  background-color: lightgreen;
+}
+
+.wish-table-row:nth-child(2){
+  background-color: lightgreen;
+}
+
+.wish-table-elements{
+  border : 3px solid black;
+  width : 33%;
+}
+
+.wish-img{
+  width : 50%;
+  height : 60%;
+}
+
+/*styling management.html*/
 
 input{
   width : 50%;

@@ -14,15 +14,31 @@
 
     <table class="both-tables child-table">
         <thead>
-            <tr class="table-row">
+            <tr class="table-row table-headline">
                 <th class="table-elements">Name</th>
                 <th class="table-elements">Age</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="child-tBody" onload="getChild()">
 
         </tbody>
     </table>
+
+    <p class="child-headline" id="wish-headline">Wishes </p>
+
+    <table class="both-tables child-table">
+        <thead>
+        <tr class="wish-table-row table-headline">
+            <th class="wish-table-elements">Name</th>
+            <th class="wish-table-elements">URL</th>
+            <th class="wish-table-elements">Image</th>
+        </tr>
+        </thead>
+        <tbody id="wishes-tBody">
+
+        </tbody>
+    </table>
+    <script src="/index.js"></script>
 </body>
 
 </html>
