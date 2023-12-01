@@ -18,8 +18,12 @@ a {
 }
 
 .table-elements{
-  border : 3px solid black;
   width : 50%;
+  height : 30px;
+}
+
+.table-row{
+  text-align: center;
 }
 
 .table-row:nth-child(2){
@@ -35,13 +39,14 @@ a {
 }
 
 .wish-table-elements{
-  border : 3px solid black;
-  width : 33%;
+  width : 33.3%;
+  text-align: center;
 }
 
 .wish-img{
   width : 50%;
   height : 60%;
+  padding : 10px;
 }
 
 /*styling management.html*/

@@ -34,7 +34,7 @@ const getWishes = async (name : string) =>{
             stringOut +=
                 `<tr class="wish-table-row">`
                 + `<td class="wish-table-elements">${w.name}</td>`
-                + `<td class="wish-table-elements"><a href="${w.URL}">Link</a></td> `
+                + `<td class="wish-table-elements"><a href="${w.url}" target="_blank">Link</a></td> `
                 + `<td class="wish-table-elements"><img src="${w.img_url}" class="wish-img"></td></tr>`
         })
 

@@ -60,13 +60,17 @@ app.post('/children/:id/wishes', (req : Request, res : Response) =>{
             return;
         }
 
-        let maxID = childrenArr[indexOfChild].wishes[0].id;
+        let maxID = 0
+        if(childrenArr[indexOfChild].wishes.length !== 0){
+            maxID = childrenArr[indexOfChild].wishes[0].id;
 
-        for (let i = 1; i < childrenArr[indexOfChild].wishes.length; i++) {
-            if(childrenArr[indexOfChild].wishes[i].id > maxID){
-                maxID = childrenArr[indexOfChild].wishes[i].id ;
+            for (let i = 1; i < childrenArr[indexOfChild].wishes.length; i++) {
+                if(childrenArr[indexOfChild].wishes[i].id > maxID){
+                    maxID = childrenArr[indexOfChild].wishes[i].id ;
+                }
             }
         }
+
 
         const wish : IWish = {"id" : maxID + 1,
             "name" : req.body.name,
