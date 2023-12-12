@@ -12,7 +12,7 @@ const basicURL = 'http://Localhost:3000/wishlist/children';
 const postChild = () => __awaiter(void 0, void 0, void 0, function* () {
     let age = parseInt(document.getElementById("child-age").value);
     let name = document.getElementById("child-name").value;
-    let data = yield fetch(basicURL, {
+    let response = yield fetch(basicURL, {
         method: "POST",
         headers: {
             "Content-Type": "application/JSON"
@@ -22,6 +22,8 @@ const postChild = () => __awaiter(void 0, void 0, void 0, function* () {
             age
         })
     });
+    document.getElementById("error-message").innerText = response.statusText;
+    dropDownFunction();
 });
 const postWish = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log("hallo");
@@ -45,10 +47,22 @@ const postWish = () => __awaiter(void 0, void 0, void 0, function* () {
                 "img_url": imageURL
             })
         });
+        document.getElementById("error-message").innerText = res.statusText;
     }
     catch (ex) {
         console.log("err, did not find name");
         return;
     }
-    //const data = await fetch(basicURL)
+});
+window.onload = () => {
+    dropDownFunction();
+};
+const dropDownFunction = () => __awaiter(void 0, void 0, void 0, function* () {
+    const allChilds = yield fetch(basicURL);
+    const JSONallChilds = yield allChilds.json();
+    let out = "";
+    JSONallChilds.forEach((e) => {
+        out += `<option value="${e.name}">${e.name}</option>`;
+    });
+    document.getElementById("wish-child").innerHTML = out;
 });

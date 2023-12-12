@@ -72,3 +72,8 @@ label{
   color: white;
   border: 1px solid transparent;
 }
+
+#wish-child{
+  width : 52%;
+  height : 40px;
+}

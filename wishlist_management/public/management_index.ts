@@ -2,7 +2,7 @@ const basicURL = 'http://Localhost:3000/wishlist/children';
 const postChild = async () =>{
     let age =  parseInt((document.getElementById("child-age") as HTMLInputElement).value);
     let name = (document.getElementById("child-name") as HTMLInputElement).value;
-    let data = await fetch(basicURL, {
+    let response = await fetch(basicURL, {
         method : "POST",
         headers : {
             "Content-Type" : "application/JSON"
@@ -11,7 +11,11 @@ const postChild = async () =>{
             name,
             age
         })
-    })
+    });
+
+    (document.getElementById("error-message") as HTMLParagraphElement).innerText = response.statusText;
+
+    dropDownFunction();
 }
 
 const postWish = async () =>{
@@ -39,12 +43,28 @@ const postWish = async () =>{
                 "img_url" : imageURL
 
             })
-        } )
+        });
+        (document.getElementById("error-message") as HTMLParagraphElement).innerText = res.statusText;
     } catch(ex){
         console.log("err, did not find name");
         return;
     }
 
 
-    //const data = await fetch(basicURL)
+
+}
+
+window.onload =  () =>{
+    dropDownFunction();
+}
+
+const dropDownFunction = async () =>{
+    const allChilds = await fetch(basicURL);
+    const JSONallChilds = await allChilds.json();
+    let out : any = "";
+
+    JSONallChilds.forEach( (e : any) =>{
+        out  += `<option value="${e.name}">${e.name}</option>`;
+    });
+    (document.getElementById("wish-child") as HTMLSelectElement).innerHTML = out;
 }
